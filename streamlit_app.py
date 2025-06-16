@@ -38,7 +38,7 @@ def load_data():
     df.dropna(subset=['Cuisines'], inplace=True)
     df.fillna(0, inplace=True)
 
-    vectorizer = CountVectorizer(tokenizer=lambda x: x.split(', '), token_pattern=None)
+    vectorizer = CountVectorizer(tokenizer=lambda x: x.split(', '))
     cuisine_features = vectorizer.fit_transform(df['Cuisines'])
 
     numerical = df[['Average Cost for two', 'Aggregate rating', 'Votes']]
